@@ -106,9 +106,20 @@ if (!$opt_H) {
 	print_usage();
 	exit $ERRORS{'OK'};
 }
+
+#Changed to check case use 2c
+#my $snmp = "1";
+#if ($opt_v && $opt_v =~ /^[0-9]$/) {
+#	$snmp = $opt_v;
+#}
 my $snmp = "1";
-if ($opt_v && $opt_v =~ /^[0-9]$/) {
-	$snmp = $opt_v;
+if ($opt_v && $opt_v eq "2c") {
+        $snmp = 2;
+}
+else {
+        if ($opt_v && $opt_v =~ /^[0-9]$/) {
+                $snmp = $opt_v;
+        }
 }
 
 if ($snmp eq "3") {
